@@ -4,3 +4,4 @@ benefit future projects, maybe those should be ported back to html5-skeleton!
 Add all features to backport to the list below, so you don't forget:
 - scripts/compile
 - tests/index.html
+- SignalTest/Signal
