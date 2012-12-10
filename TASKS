@@ -7,3 +7,6 @@ Base code improvements:
     runtime, this wouldn't be a problem.
   * Using a div would allow for choosing alternative rendering methods at
     runtime.
+- Add CLI tool that can:
+  * Create a new component from a template.
+  * Create a new entity from a template.
