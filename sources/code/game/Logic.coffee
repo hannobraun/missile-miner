@@ -2,21 +2,16 @@ module "Logic", [ "Input", "Entities", "Vec2" ], ( m ) ->
 	nextEntityId = 0
 
 	entityFactories =
-		"myEntity": ( args ) ->
-			movement =
-				center: args.center
-				radius: args.radius
-				speed : args.speed
-
+		"miner": ( args ) ->
 			id = nextEntityId
 			nextEntityId += 1
 
 			entity =
 				id: id
 				components:
-					"positions": [ 0, 0 ]
-					"movements": movement
-					"imageIds" : "star.png"
+					"bodies":
+						position: [ 0, 0 ]
+					"imageIds": "miner.png"
 
 	# There are functions for creating and destroying entities in the Entities
 	# module. We will mostly use shortcuts however. They are declared here and
@@ -45,21 +40,7 @@ module "Logic", [ "Input", "Entities", "Vec2" ], ( m ) ->
 					gameState.components,
 					entityId )
 
-			createEntity( "myEntity", {
-				center: [ 0, 0 ]
-				radius: 50,
-				speed : 2 } )
-			createEntity( "myEntity", {
-				center: [ 0, 0 ]
-				radius: 100,
-				speed : -1 } )
+			createEntity( "miner", {} )
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
-			for entityId, position of gameState.components.positions
-				movement = gameState.components.movements[ entityId ]
-
-				angle = gameTimeInS * movement.speed
-				position[ 0 ] = movement.radius * Math.cos( angle )
-				position[ 1 ] = movement.radius * Math.sin( angle )
-
-				m.Vec2.add( position, currentInput.pointerPosition )
+			# Nothing to update.

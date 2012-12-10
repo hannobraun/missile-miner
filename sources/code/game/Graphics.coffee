@@ -7,11 +7,11 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 		updateRenderState: ( renderState, gameState ) ->
 			renderState.renderables.length = 0
 
-			for entityId, position of gameState.components.positions
+			for entityId, body of gameState.components.bodies
 				imageId = gameState.components.imageIds[ entityId ]
 
 				renderable = m.Rendering.createRenderable( "image", {
-					position: position },
+					position: body.position },
 					imageId )
 
 				renderState.renderables.push( renderable )
