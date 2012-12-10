@@ -3,14 +3,18 @@ module "Logic", [ "Input", "Entities", "Vec2" ], ( m ) ->
 
 	entityFactories =
 		"miner": ( args ) ->
+			body =
+				position    : [ 0, 0 ]
+				velocity    : [ 0, -100 ]
+
 			id = nextEntityId
 			nextEntityId += 1
 
 			entity =
 				id: id
 				components:
-					"bodies":
-						position: [ 0, 0 ]
+					"bodies"  : body
+					"miners"  : {}
 					"imageIds": "miner.png"
 
 	# There are functions for creating and destroying entities in the Entities
@@ -43,4 +47,8 @@ module "Logic", [ "Input", "Entities", "Vec2" ], ( m ) ->
 			createEntity( "miner", {} )
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
-			# Nothing to update.
+			for entityId, body of gameState.components.bodies
+				frameMovement = m.Vec2.copy( body.velocity )
+				m.Vec2.scale( frameMovement, frameTimeInS )
+
+				m.Vec2.add( body.position, frameMovement )
