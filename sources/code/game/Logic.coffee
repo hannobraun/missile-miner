@@ -1,6 +1,7 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControls" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls" ], ( m ) ->
 	entityFactories =
-		"miner": m.Miners.createMiner
+		"asteroid": m.Asteroids.createAsteroid
+		"miner"   : m.Miners.createMiner
 
 	# There are functions for creating and destroying entities in the Entities
 	# module. We will mostly use shortcuts however. They are declared here and
@@ -32,6 +33,11 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 					entityId )
 
 			createEntity( "miner", {} )
+
+			for i in [1..5]
+				createEntity( "asteroid", {
+					fieldSize: gameState.fieldSize } )
+
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
 			components = gameState.components
