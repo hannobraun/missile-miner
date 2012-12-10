@@ -32,8 +32,6 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies" ], ( m ) ->
 			createEntity( "miner", {} )
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
-			for entityId, body of gameState.components.bodies
-				frameMovement = m.Vec2.copy( body.velocity )
-				m.Vec2.scale( frameMovement, frameTimeInS )
-
-				m.Vec2.add( body.position, frameMovement )
+			m.Bodies.updateBodies(
+				frameTimeInS,
+				gameState.components.bodies )
