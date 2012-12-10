@@ -12,4 +12,4 @@ module "DetectCollisions", [ "Vec2" ], ( m ) ->
 
 					radii = minerBody.radius + asteroidBody.radius
 					if m.Vec2.length( minerToAsteroid ) < radii
-						console.log( "collision!" )
+						minerControl.health -= 1
