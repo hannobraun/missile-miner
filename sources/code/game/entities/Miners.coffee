@@ -5,7 +5,7 @@ module "Miners", [ "Bodies", "MinerControls" ], ( m ) ->
 		createMiner: ( args ) ->
 			body = m.Bodies.createBody()
 
-			id = nextEntityId
+			id = "miner#{ nextEntityId }"
 			nextEntityId += 1
 
 			entity =
