@@ -15,3 +15,11 @@ Base code improvements:
   * Time it takes to finish parts of a frame (average and standard deviation).
 - Don't generate any garbage in Graphics and check if that makes any difference
   for performance (especially standard deviation).
+- Auto-generate a module each that depends on all entities/components and
+  provides access to them in a useful manner. Provide functions that allow easy
+  access to the data in these modules via some kind of DSL.
+  Examples of use cases that need some kind of DSL written for them:
+  * Creating entities. Currently a data structure is built by hand.
+  * updateGameState: If component modules would need to be accessed via a data
+    structure provided by some intermediate module, the code would get unwieldy
+    pretty fast.
