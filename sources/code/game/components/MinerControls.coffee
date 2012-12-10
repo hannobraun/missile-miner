@@ -7,10 +7,11 @@ module "MinerControls", [ "Input" ], ( m ) ->
 			for entityId, minerControl of minerControls
 				body = bodies[ entityId ]
 
-				if m.Input.isKeyDown( currentInput, "up arrow" )
-					body.velocity = [ 0, -200 ]
-				else
-					body.velocity = [ 0, 0 ]
+				body.accelerationMagnitude =
+					if m.Input.isKeyDown( currentInput, "up arrow" )
+						200
+					else
+						0
 
 				rotationDirection = 0
 				if m.Input.isKeyDown( currentInput, "right arrow" )
