@@ -9,11 +9,13 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 	destroyEntity = null
 
 	module =
-		createGameState: ->
+		createGameState: ( fieldSize ) ->
 			gameState =
 				# Game entities are made up of components. The components will
 				# be stored in this map.
 				components: {}
+
+				fieldSize: fieldSize
 
 		initGameState: ( gameState ) ->
 			# These are the shortcuts we will use for creating and destroying
@@ -33,6 +35,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
 			components = gameState.components
+			fieldSize  = gameState.fieldSize
 
 			bodies        = components[ "bodies" ]
 			minerControls = components[ "minerControls" ]
@@ -45,3 +48,13 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 			m.Bodies.updateBodies(
 				frameTimeInS,
 				gameState.components.bodies )
+
+			for entityId, body of bodies
+				for i in [0..1]
+					limit      = fieldSize[ i ] / 2
+					coordinate = body.position[ i ]
+
+					if coordinate > limit
+						body.position[ i ] = -limit + ( coordinate - limit )
+					if coordinate < -limit
+						body.position[ i ] = limit - ( coordinate - limit )
