@@ -9,6 +9,8 @@ module "Bodies", [ "Vec2", "Transform2d" ], ( m ) ->
 
 				accelerationMagnitude: 0
 
+				radius: 1
+
 		updateBodies: ( frameTimeInS, bodies ) ->
 			for entityId, body of bodies
 				orientationTransform =
