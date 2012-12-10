@@ -34,7 +34,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 
 			createEntity( "miner", {} )
 
-			for i in [1..5]
+			for i in [1..10]
 				createEntity( "asteroid", {
 					fieldSize: gameState.fieldSize } )
 
