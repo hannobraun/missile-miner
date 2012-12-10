@@ -5,3 +5,5 @@ Add all features to backport to the list below, so you don't forget:
 - scripts/compile
 - tests/index.html
 - SignalTest/Signal
+- Graphics: Make orientation explicit. The current skeleton code relies on the
+  default value, which makes it harder to modify once an orientation is needed.
