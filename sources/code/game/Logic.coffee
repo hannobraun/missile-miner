@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions" ], ( m ) ->
 	entityFactories =
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
@@ -43,6 +43,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 			components = gameState.components
 			fieldSize  = gameState.fieldSize
 
+			asteroids     = components[ "asteroids" ]
 			bodies        = components[ "bodies" ]
 			minerControls = components[ "minerControls" ]
 
@@ -64,3 +65,8 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 						body.position[ i ] = -limit + ( coordinate - limit )
 					if coordinate < -limit
 						body.position[ i ] = limit - ( coordinate - limit )
+
+			m.DetectCollisions(
+				minerControls,
+				asteroids,
+				bodies )
