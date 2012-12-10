@@ -23,3 +23,5 @@ Skeleton improvements:
   * updateGameState: If component modules would need to be accessed via a data
     structure provided by some intermediate module, the code would get unwieldy
     pretty fast.
+- Automatically generate a module that contains all image paths. Include that
+  module in Images, so user never touches image paths array?
