@@ -4,7 +4,7 @@ module "Asteroids", [ "Bodies" ], ( m ) ->
 	module =
 		createAsteroid: ( args ) ->
 			body = m.Bodies.createBody()
-			body.position = [ Math.random() * args.fieldSize[ 0 ], args.fieldSize[ 1 ] ]
+			body.position = [ Math.random() * args.fieldSize[ 0 ], args.fieldSize[ 1 ] / 2 ]
 			body.velocity = [ Math.random() * 100 - 50, Math.random() * 100 - 50 ]
 
 			id = "asteroid#{ nextEntityId }"
