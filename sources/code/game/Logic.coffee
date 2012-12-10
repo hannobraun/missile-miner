@@ -32,6 +32,11 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 			createEntity( "miner", {} )
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
+			components = gameState.components
+
+			bodies        = components[ "bodies" ]
+			minerControls = components[ "minerControls" ]
+
 			m.MinerControls.processInput(
 				currentInput,
 				frameTimeInS,
