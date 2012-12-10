@@ -27,3 +27,7 @@ Skeleton improvements:
 - Automatically generate a module that contains all image paths. Include that
   module in Images, so user never touches image paths array?
 - Create wrapper module for lodash.
+- It should be possible to have the same names for components and entities. E.g.
+  "miner" entity with a "miner" component. Using "minerControl" is less than
+  optimal.
+- Rename Vec2.copy to Vec2.clone.
