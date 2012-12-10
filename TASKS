@@ -1,0 +1,9 @@
+Base code improvements:
+
+- Don't add the canvas to the HTML. Just add a div and create the canvas in
+  code. This has two advantages:
+  * Currently, with the black background, the fallback text is not correctly
+    displayed. If the canvas (and its style information) were generated at
+    runtime, this wouldn't be a problem.
+  * Using a div would allow for choosing alternative rendering methods at
+    runtime.
