@@ -11,6 +11,6 @@ module "Miners", [ "Bodies" ], ( m ) ->
 			entity =
 				id: id
 				components:
-					"bodies"  : body
-					"miners"  : {}
-					"imageIds": "miner.png"
+					"bodies"       : body
+					"minerControls": {}
+					"imageIds"     : "miner.png"
