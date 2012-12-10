@@ -1,4 +1,4 @@
-module "Miners", [ "Bodies" ], ( m ) ->
+module "Miners", [ "Bodies", "MinerControls" ], ( m ) ->
 	nextEntityId = 0
 
 	module =
@@ -12,5 +12,5 @@ module "Miners", [ "Bodies" ], ( m ) ->
 				id: id
 				components:
 					"bodies"       : body
-					"minerControls": {}
+					"minerControls": m.MinerControls.createMinerControl()
 					"imageIds"     : "miner.png"
