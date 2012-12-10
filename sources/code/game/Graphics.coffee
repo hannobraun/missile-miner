@@ -5,7 +5,9 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 				renderables: []
 
 		updateRenderState: ( renderState, gameState ) ->
-			renderState.renderables.length = 0
+			renderables = renderState.renderables
+
+			renderables.length = 0
 
 			for entityId, body of gameState.components.bodies
 				imageId = gameState.components.imageIds[ entityId ]
@@ -15,4 +17,4 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 					orientation: body.orientation },
 					imageId )
 
-				renderState.renderables.push( renderable )
+				renderables.push( renderable )
