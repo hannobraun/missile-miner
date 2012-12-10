@@ -8,7 +8,7 @@ module "MinerControls", [ "Input" ], ( m ) ->
 				body = bodies[ entityId ]
 
 				if m.Input.isKeyDown( currentInput, "up arrow" )
-					body.velocity = [ 0, -100 ]
+					body.velocity = [ 0, -200 ]
 				else
 					body.velocity = [ 0, 0 ]
 
