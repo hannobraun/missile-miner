@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControls" ], ( m ) ->
 	entityFactories =
 		"miner": m.Miners.createMiner
 
@@ -32,6 +32,10 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies" ], ( m ) ->
 			createEntity( "miner", {} )
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
+			m.MinerControls.processInput(
+				currentInput,
+				gameState.components.minerControls,
+				gameState.components.bodies )
 			m.Bodies.updateBodies(
 				frameTimeInS,
 				gameState.components.bodies )
