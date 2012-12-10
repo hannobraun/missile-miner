@@ -1,11 +1,9 @@
-module "Logic", [ "Input", "Entities", "Vec2" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Bodies" ], ( m ) ->
 	nextEntityId = 0
 
 	entityFactories =
 		"miner": ( args ) ->
-			body =
-				position    : [ 0, 0 ]
-				velocity    : [ 0, -100 ]
+			body = m.Bodies.createBody()
 
 			id = nextEntityId
 			nextEntityId += 1
