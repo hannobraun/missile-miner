@@ -3,7 +3,7 @@ module "Bodies", [ "Vec2" ], ( m ) ->
 		createBody: () ->
 			body =
 				position    : [ 0, 0 ]
-				velocity    : [ 0, -100 ]
+				velocity    : [ 0, 0 ]
 
 		updateBodies: ( frameTimeInS, bodies ) ->
 			for entityId, body of bodies
