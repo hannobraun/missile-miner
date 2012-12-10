@@ -1,5 +1,11 @@
 module "Main", [ "Images", "Rendering", "Input", "MainLoop", "Step", "Logic", "Graphics" ], ( m )->
-	m.Images.loadImages [ "images/miner.png" ], ( rawImages ) ->
+	images = [
+		"images/alien.png"
+		"images/asteroid.png"
+		"images/miner.png"
+		"images/missile.png" ]
+
+	m.Images.loadImages images, ( rawImages ) ->
 		images = m.Images.process( rawImages )
 
 		renderData = m.Rendering.createRenderData( m.Rendering.drawFunctions, {
