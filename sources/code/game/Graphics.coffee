@@ -11,7 +11,8 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 				imageId = gameState.components.imageIds[ entityId ]
 
 				renderable = m.Rendering.createRenderable( "image", {
-					position: body.position },
+					position   : body.position
+					orientation: body.orientation },
 					imageId )
 
 				renderState.renderables.push( renderable )

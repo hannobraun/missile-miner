@@ -34,6 +34,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies", "MinerControl
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
 			m.MinerControls.processInput(
 				currentInput,
+				frameTimeInS,
 				gameState.components.minerControls,
 				gameState.components.bodies )
 			m.Bodies.updateBodies(

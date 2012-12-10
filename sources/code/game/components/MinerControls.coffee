@@ -3,7 +3,7 @@ module "MinerControls", [ "Input" ], ( m ) ->
 		createMinerControl: () ->
 			{}
 
-		processInput: ( currentInput, minerControls, bodies ) ->
+		processInput: ( currentInput, frameTimeInS, minerControls, bodies ) ->
 			for entityId, minerControl of minerControls
 				body = bodies[ entityId ]
 
@@ -11,3 +11,13 @@ module "MinerControls", [ "Input" ], ( m ) ->
 					body.velocity = [ 0, -100 ]
 				else
 					body.velocity = [ 0, 0 ]
+
+				rotationDirection = 0
+				if m.Input.isKeyDown( currentInput, "right arrow" )
+					rotationDirection = 1
+				if m.Input.isKeyDown( currentInput, "left arrow" )
+					rotationDirection = -1
+
+				rotationInRadPerS = 4
+				body.orientation +=
+					rotationInRadPerS * frameTimeInS * rotationDirection
