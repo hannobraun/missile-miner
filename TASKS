@@ -25,3 +25,4 @@ Skeleton improvements:
     pretty fast.
 - Automatically generate a module that contains all image paths. Include that
   module in Images, so user never touches image paths array?
+- Create wrapper module for lodash.
