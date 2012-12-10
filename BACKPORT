@@ -4,10 +4,11 @@ benefit future projects, maybe those should be ported back to html5-skeleton!
 Add all features to backport to the list below, so you don't forget:
 - scripts/compile
 - tests/index.html
-- SignalTest/Signal
 - Graphics: Make orientation explicit. The current skeleton code relies on the
   default value, which makes it harder to modify once an orientation is needed.
 - Logic: Move entities and components out into separate modules. At least add
   a prefix to the entity ids.
 - Main: Move the image path array at the top into its own variable.
 - Use two different images for the two objects.
+- Graphics: Use Vec2.clone (copy) for setting the renderable position. This is
+  more robust and, all things considered, the correct way to do it.
