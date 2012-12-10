@@ -1,19 +1,6 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Bodies" ], ( m ) ->
-	nextEntityId = 0
-
+module "Logic", [ "Input", "Entities", "Vec2", "Miners", "Bodies" ], ( m ) ->
 	entityFactories =
-		"miner": ( args ) ->
-			body = m.Bodies.createBody()
-
-			id = nextEntityId
-			nextEntityId += 1
-
-			entity =
-				id: id
-				components:
-					"bodies"  : body
-					"miners"  : {}
-					"imageIds": "miner.png"
+		"miner": m.Miners.createMiner
 
 	# There are functions for creating and destroying entities in the Entities
 	# module. We will mostly use shortcuts however. They are declared here and
