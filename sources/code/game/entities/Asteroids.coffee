@@ -6,7 +6,7 @@ module "Asteroids", [ "Bodies" ], ( m ) ->
 			body = m.Bodies.createBody()
 			body.position = [ Math.random() * args.fieldSize[ 0 ], args.fieldSize[ 1 ] / 2 ]
 			body.velocity = [ Math.random() * 100 - 50, Math.random() * 100 - 50 ]
-			body.radius   = 16
+			body.radius   = 20
 
 			id = "asteroid#{ nextEntityId }"
 			nextEntityId += 1
