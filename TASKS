@@ -7,10 +7,14 @@ Skeleton improvements:
     runtime, this wouldn't be a problem.
   * Using a div would allow for choosing alternative rendering methods at
     runtime.
-- Add CLI tool that can:
-  * Create a new component from a template (./create component Body [Bodies]).
-  * Create a new entity from a template (./create entity Miner [Miners]).
-  * Create a new system from a template (./create system detectCollisions).
+- Add CLI tool (why not call it ./tool) that can:
+  * Create a new component from a template (./tool create component Body [Bodies]).
+  * Create a new entity from a template (./tool create entity Miner [Miners]).
+  * Create a new system from a template (./tool create system detectCollisions).
+- Hide all functionality in the scripts directory behind the new ./tool script (
+  ./tool compile and ./tool deploy). The configuration aspects of it should be
+  extracted into a central file in the project root.
+- Implement ./tool stage. Like deploy, only it deploys to a staging area.
 - Collect some performance metrics:
   * Time it takes to finish a frame (average and standard deviation).
   * Time it takes to finish parts of a frame (average and standard deviation).
