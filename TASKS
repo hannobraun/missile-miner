@@ -10,3 +10,8 @@ Base code improvements:
 - Add CLI tool that can:
   * Create a new component from a template (./create component Body [Bodies]).
   * Create a new entity from a template (./create entity Miner [Miners]).
+- Collect some performance metrics:
+  * Time it takes to finish a frame (average and standard deviation).
+  * Time it takes to finish parts of a frame (average and standard deviation).
+- Don't generate any garbage in Graphics and check if that makes any difference
+  for performance (especially standard deviation).
