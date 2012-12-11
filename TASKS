@@ -21,7 +21,7 @@ Skeleton improvements:
 - Don't generate any garbage in Graphics and check if that makes any difference
   for performance (especially standard deviation).
 - Auto-generate a module each that depends on all entities/components/systems
-  and   provides access to them in a useful manner. Provide functions that allow
+  and provides access to them in a useful manner. Provide functions that allow
   easy access to the data in these modules via some kind of DSL.
   Examples of use cases that need some kind of DSL written for them:
   * Creating entities. Currently a data structure is built by hand.
