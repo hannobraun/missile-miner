@@ -1,4 +1,4 @@
-module "MoveAliens", [ "Vec2" ], ( m ) ->
+module "ControlAliens", [ "Vec2" ], ( m ) ->
 	( frameTimeInS, alienControls, bodies, fieldSize ) ->
 		for entityId, alienControl of alienControls
 			body = bodies[ entityId ]

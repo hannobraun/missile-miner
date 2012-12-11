@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "MoveAliens" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "ControlAliens" ], ( m ) ->
 	entityFactories =
 		"alien"   : m.Aliens.createAlien
 		"asteroid": m.Asteroids.createAsteroid
@@ -97,7 +97,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 				frameTimeInS,
 				createEntity,
 				gameState.fieldSize )
-			m.MoveAliens(
+			m.ControlAliens(
 				frameTimeInS,
 				alienControls,
 				bodies,
