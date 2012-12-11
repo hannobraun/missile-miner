@@ -1,5 +1,6 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien" ], ( m ) ->
 	entityFactories =
+		"alien"   : m.Aliens.createAlien
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
 
@@ -19,6 +20,8 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 				fieldSize: fieldSize
 				score    : 0
 
+				nextAlienCountdownInS: 10
+
 		initGameState: ( gameState ) ->
 			# These are the shortcuts we will use for creating and destroying
 			# entities.
@@ -35,10 +38,9 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 
 			createEntity( "miner", {} )
 
-			for i in [1..10]
+			for i in [ 1..10 ]
 				createEntity( "asteroid", {
 					fieldSize: gameState.fieldSize } )
-
 
 		updateGameState: ( gameState, currentInput, gameTimeInS, frameTimeInS ) ->
 			components = gameState.components
@@ -89,3 +91,8 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 				minerControls,
 				asteroidControls,
 				bodies )
+			m.SpawnAlien(
+				gameState,
+				frameTimeInS,
+				createEntity,
+				gameState.fieldSize )
