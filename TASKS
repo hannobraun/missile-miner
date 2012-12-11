@@ -41,3 +41,5 @@ Skeleton improvements:
   are way too hard to miss, especially if you're refactoring, not expecting any
   changes and think everything all right, when in reality you introduced an
   error minutes ago).
+- Tie score to amount of ore mined. Currently, there's duplication in the
+  calculation.
