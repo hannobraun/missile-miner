@@ -17,7 +17,7 @@ module "MoveAliens", [ "Vec2" ], ( m ) ->
 				y = Math.random() * fieldSize[ 1 ] - fieldSize[ 1 ] / 2
 				alienControl.waypoint = [ x, y ]
 
-				alienSpeed = 20
+				alienSpeed = 15
 
 				velocity = m.Vec2.copy( alienControl.waypoint )
 				m.Vec2.subtract( velocity, body.position )
