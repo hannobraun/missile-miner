@@ -7,12 +7,16 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 		updateRenderState: ( renderState, gameState ) ->
 			components = gameState.components
 
-			bodies   = components.bodies
-			imageIds = components.imageIds
+			bodies        = components.bodies
+			imageIds      = components.imageIds
+			minerControls = components.minerControls
 
 			renderables = renderState.renderables
 
 			renderables.length = 0
+
+			for entityId, minerControl of minerControls
+				console.log( minerControl.laserEfficiency )
 
 			for entityId, body of bodies
 				imageId = imageIds[ entityId ]

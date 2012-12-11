@@ -4,6 +4,7 @@ module "MinerControls", [ "Input" ], ( m ) ->
 			minerControl =
 				health           : 1
 				nearestAsteroidId: null
+				laserEfficiency  : 0
 
 		processInput: ( currentInput, frameTimeInS, minerControls, bodies ) ->
 			for entityId, minerControl of minerControls

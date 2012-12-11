@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser" ], ( m ) ->
 	entityFactories =
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
@@ -73,3 +73,6 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 			m.DetectLoss(
 				minerControls,
 				destroyEntity )
+			m.ActivateMiningLaser(
+				minerControls,
+				bodies )
