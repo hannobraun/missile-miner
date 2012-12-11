@@ -1,4 +1,4 @@
-module "Aliens", [ "Bodies" ], ( m ) ->
+module "Aliens", [ "AlienControls", "Bodies" ], ( m ) ->
 	nextEntityId = 0
 
 	module =
@@ -17,5 +17,5 @@ module "Aliens", [ "Bodies" ], ( m ) ->
 				id: id
 				components:
 					"bodies"       : body
-					"alienControls": {}
+					"alienControls": m.AlienControls.createAlienControl()
 					"imageIds"     : "alien.png"
