@@ -48,5 +48,4 @@ module "ControlAliens", [ "Vec2" ], ( m ) ->
 				createEntity( "missile", {
 					position: body.position
 					targetId: "miner0" } )
-
 				i += 1
