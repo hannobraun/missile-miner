@@ -43,3 +43,9 @@ Skeleton improvements:
   error minutes ago).
 - Tie score to amount of ore mined. Currently, there's duplication in the
   calculation.
+- Add geometry package that can do some more advanced stuff, like:
+  * Computing the direction a vector points to (as angle).
+  * Computing the angle between two vectors.
+  * Computing the angular direction in which one vector lies relative to
+    another.
+  * As well as other functionality as it's needed.
