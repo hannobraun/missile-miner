@@ -16,7 +16,20 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 			renderables.length = 0
 
 			for entityId, minerControl of minerControls
-				console.log( minerControl.laserEfficiency )
+				if minerControl.laserEfficiency > 0
+					minerBody    = bodies[ entityId ]
+					asteroidBody = bodies[ minerControl.nearestAsteroidId ]
+
+					maxWidth = 5
+					width    = maxWidth * minerControl.laserEfficiency
+
+					laser = m.Rendering.createRenderable( "line", {
+						start: minerBody.position
+						end  : asteroidBody.position
+						width: width
+						color: "rgb(255,255,0)" } )
+
+					renderables.push( laser )
 
 			for entityId, body of bodies
 				imageId = imageIds[ entityId ]
