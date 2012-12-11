@@ -106,6 +106,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 				fieldSize,
 				createEntity )
 			m.ControlMissiles(
+				frameTimeInS,
 				missileControls,
 				bodies,
 				destroyEntity )
