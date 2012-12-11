@@ -100,4 +100,5 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 			m.MoveAliens(
 				frameTimeInS,
 				alienControls,
-				bodies )
+				bodies,
+				fieldSize )

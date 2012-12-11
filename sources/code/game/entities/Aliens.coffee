@@ -10,6 +10,8 @@ module "Aliens", [ "AlienControls", "Bodies" ], ( m ) ->
 			body.position = [ x, y ]
 			body.radius   = 5
 
+			alienControl = m.AlienControls.createAlienControl( body.position )
+
 			id = "alien#{ nextEntityId }"
 			nextEntityId += 1
 
@@ -17,5 +19,5 @@ module "Aliens", [ "AlienControls", "Bodies" ], ( m ) ->
 				id: id
 				components:
 					"bodies"       : body
-					"alienControls": m.AlienControls.createAlienControl()
+					"alienControls": alienControl
 					"imageIds"     : "alien.png"

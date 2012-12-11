@@ -1,4 +1,5 @@
 module "AlienControls", [], ( m ) ->
 	module =
-		createAlienControl: () ->
-			{}
+		createAlienControl: ( initialPosition ) ->
+			alienControl =
+				waypoint: initialPosition
