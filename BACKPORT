@@ -2,6 +2,7 @@ If you make any useful changes or additions to the infrastructure code that can
 benefit future projects, maybe those should be ported back to html5-skeleton!
 
 Add all features to backport to the list below, so you don't forget:
+
 - scripts/compile
 - tests/index.html
 - Graphics: Make orientation explicit. The current skeleton code relies on the
@@ -12,3 +13,4 @@ Add all features to backport to the list below, so you don't forget:
 - Use two different images for the two objects.
 - Graphics: Use Vec2.clone (copy) for setting the renderable position. This is
   more robust and, all things considered, the correct way to do it.
+- Display size should be part of render state (passed into createRenderState).
