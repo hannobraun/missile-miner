@@ -1,8 +1,9 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "ControlAliens" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Missiles", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "ControlAliens" ], ( m ) ->
 	entityFactories =
 		"alien"   : m.Aliens.createAlien
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
+		"missile" : m.Missiles.createMissile
 
 	# There are functions for creating and destroying entities in the Entities
 	# module. We will mostly use shortcuts however. They are declared here and
@@ -101,4 +102,5 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 				frameTimeInS,
 				alienControls,
 				bodies,
-				fieldSize )
+				fieldSize,
+				createEntity )

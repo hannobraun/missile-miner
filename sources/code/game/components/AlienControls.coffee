@@ -3,3 +3,8 @@ module "AlienControls", [], ( m ) ->
 		createAlienControl: ( initialPosition ) ->
 			alienControl =
 				waypoint: initialPosition
+
+				tubeDelay: 10
+
+				tubeACooldown: 10
+				tubeBCooldown: 9.5
