@@ -40,3 +40,5 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 					imageId )
 
 				renderables.push( renderable )
+
+			console.log( gameState.score )

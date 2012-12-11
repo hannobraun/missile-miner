@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore" ], ( m ) ->
 	entityFactories =
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
@@ -17,6 +17,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 				components: {}
 
 				fieldSize: fieldSize
+				score    : 0
 
 		initGameState: ( gameState ) ->
 			# These are the shortcuts we will use for creating and destroying
@@ -76,3 +77,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 			m.ActivateMiningLaser(
 				minerControls,
 				bodies )
+			m.AddScore(
+				frameTimeInS,
+				minerControls,
+				gameState )
