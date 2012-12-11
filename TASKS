@@ -28,8 +28,9 @@ Skeleton improvements:
   * updateGameState: If component and system modules would need to be accessed
     via a data structure provided by an intermediate module, the code would get
     unwieldy pretty fast.
-- Automatically generate a module that contains all image paths. Include that
-  module in Images, so user never touches image paths array?
+- Automatically generate a module that contains all image paths. That module
+  should be a dependency of main and the images should be explicitely passed
+  into Images.loadImages. Good name for the module: ImagePaths.
 - Create wrapper module for lodash.
 - It should be possible to have the same names for components and entities. E.g.
   "miner" entity with a "miner" component. Using "minerControl" is less than
