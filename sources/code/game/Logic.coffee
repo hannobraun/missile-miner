@@ -44,9 +44,9 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 			components = gameState.components
 			fieldSize  = gameState.fieldSize
 
-			asteroids     = components[ "asteroids" ]
-			bodies        = components[ "bodies" ]
-			minerControls = components[ "minerControls" ]
+			asteroidControls = components[ "asteroidControls" ]
+			bodies           = components[ "bodies" ]
+			minerControls    = components[ "minerControls" ]
 
 			m.MinerControls.processInput(
 				currentInput,
@@ -69,7 +69,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 
 			m.DetectCollisions(
 				minerControls,
-				asteroids,
+				asteroidControls,
 				bodies )
 			m.DetectLoss(
 				minerControls,

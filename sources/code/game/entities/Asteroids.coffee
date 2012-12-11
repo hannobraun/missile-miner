@@ -1,4 +1,4 @@
-module "Asteroids", [ "Bodies" ], ( m ) ->
+module "Asteroids", [ "AsteroidControls", "Bodies" ], ( m ) ->
 	nextEntityId = 0
 
 	module =
@@ -14,6 +14,6 @@ module "Asteroids", [ "Bodies" ], ( m ) ->
 			entity =
 				id: id
 				components:
-					"bodies"   : body
-					"asteroids": {}
-					"imageIds" : "asteroid.png"
+					"bodies"          : body
+					"asteroidControls": m.AsteroidControls.createAsteroidControl()
+					"imageIds"        : "asteroid.png"
