@@ -16,12 +16,12 @@ module "Rendering", [], ( m ) ->
 					position[ 0 ],
 					position[ 1 ] )
 				context.rotate( orientation + image.orientationOffset )
-				context.translate(
-					image.positionOffset[ 0 ],
-					image.positionOffset[ 1 ] )
 				context.scale(
 					scale[ 0 ],
 					scale[ 1 ] )
+				context.translate(
+					image.positionOffset[ 0 ],
+					image.positionOffset[ 1 ] )
 				context.drawImage( image.rawImage, 0, 0 )
 
 			"text": ( context, properties ) ->
