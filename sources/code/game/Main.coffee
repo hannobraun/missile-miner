@@ -26,7 +26,7 @@ module "Main", [ "Images", "Rendering", "Input", "MainLoop", "Step", "Logic", "G
 		display      = m.Rendering.createDisplay()
 		currentInput = m.Input.createCurrentInput( display )
 		gameState    = m.Logic.createGameState( display.size )
-		renderState  = m.Graphics.createRenderState()
+		renderState  = m.Graphics.createRenderState( display.size )
 
 		m.Logic.initGameState( gameState )
 
