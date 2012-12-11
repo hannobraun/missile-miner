@@ -3,10 +3,12 @@ module "Asteroids", [ "AsteroidControls", "Bodies" ], ( m ) ->
 
 	module =
 		createAsteroid: ( args ) ->
+			asteroidControl = m.AsteroidControls.createAsteroidControl()
+
 			body = m.Bodies.createBody()
 			body.position = [ Math.random() * args.fieldSize[ 0 ], args.fieldSize[ 1 ] / 2 ]
 			body.velocity = [ Math.random() * 100 - 50, Math.random() * 100 - 50 ]
-			body.radius   = 20
+			body.radius   = asteroidControl.initialRadius
 
 			id = "asteroid#{ nextEntityId }"
 			nextEntityId += 1
@@ -15,5 +17,5 @@ module "Asteroids", [ "AsteroidControls", "Bodies" ], ( m ) ->
 				id: id
 				components:
 					"bodies"          : body
-					"asteroidControls": m.AsteroidControls.createAsteroidControl()
+					"asteroidControls": asteroidControl
 					"imageIds"        : "asteroid.png"

@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids" ], ( m ) ->
 	entityFactories =
 		"asteroid": m.Asteroids.createAsteroid
 		"miner"   : m.Miners.createMiner
@@ -48,6 +48,9 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 			bodies           = components[ "bodies" ]
 			minerControls    = components[ "minerControls" ]
 
+			m.DestroyAsteroids(
+				asteroidControls,
+				destroyEntity )
 			m.MinerControls.processInput(
 				currentInput,
 				frameTimeInS,
@@ -81,3 +84,8 @@ module "Logic", [ "Input", "Entities", "Vec2", "Asteroids", "Miners", "Bodies", 
 				frameTimeInS,
 				minerControls,
 				gameState )
+			m.RemoveOre(
+				frameTimeInS,
+				minerControls,
+				asteroidControls,
+				bodies )

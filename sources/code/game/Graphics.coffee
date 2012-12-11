@@ -8,9 +8,10 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 		updateRenderState: ( renderState, gameState ) ->
 			components = gameState.components
 
-			bodies        = components.bodies
-			imageIds      = components.imageIds
-			minerControls = components.minerControls
+			asteroidControls = components.asteroidControls
+			bodies           = components.bodies
+			imageIds         = components.imageIds
+			minerControls    = components.minerControls
 
 			renderables = renderState.renderables
 
@@ -33,11 +34,19 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 					renderables.push( laser )
 
 			for entityId, body of bodies
-				imageId = imageIds[ entityId ]
+				imageId         = imageIds[ entityId ]
+				asteroidControl = asteroidControls[ entityId ]
+
+				scale =
+					if asteroidControl?
+						asteroidControl.currentOre / asteroidControl.initialOre
+					else
+						1
 
 				renderable = m.Rendering.createRenderable( "image", {
 					position   : body.position
-					orientation: body.orientation },
+					orientation: body.orientation
+					scale      : [ scale, scale ] },
 					imageId )
 
 				renderables.push( renderable )
