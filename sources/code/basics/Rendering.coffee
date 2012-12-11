@@ -72,7 +72,7 @@ module "Rendering", [], ( m ) ->
 				size     = properties.size
 
 				color = properties.color or "rgb(255,255,255)"
-				fill  = if properties.fill? then properties.fill else true
+				fill  = properties.fill  or true
 
 				if fill
 					context.fillStyle = color
