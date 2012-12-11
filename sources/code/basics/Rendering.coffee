@@ -7,6 +7,7 @@ module "Rendering", [], ( m ) ->
 
 				position    = properties.position    or [ 0, 0 ]
 				orientation = properties.orientation or 0
+				scale       = properties.scale       or [ 1, 1 ]
 				alpha       = properties.alpha       or 1
 
 				context.globalAlpha = alpha
@@ -18,6 +19,9 @@ module "Rendering", [], ( m ) ->
 				context.translate(
 					image.positionOffset[ 0 ],
 					image.positionOffset[ 1 ] )
+				context.scale(
+					scale[ 0 ],
+					scale[ 1 ] )
 				context.drawImage( image.rawImage, 0, 0 )
 
 			"text": ( context, properties ) ->
