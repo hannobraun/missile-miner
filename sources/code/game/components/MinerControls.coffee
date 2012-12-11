@@ -2,7 +2,8 @@ module "MinerControls", [ "Input" ], ( m ) ->
 	module =
 		createMinerControl: () ->
 			minerControl =
-				health: 1
+				health           : 1
+				nearestAsteroidId: null
 
 		processInput: ( currentInput, frameTimeInS, minerControls, bodies ) ->
 			for entityId, minerControl of minerControls
