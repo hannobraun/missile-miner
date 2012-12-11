@@ -14,3 +14,4 @@ Add all features to backport to the list below, so you don't forget:
 - Graphics: Use Vec2.clone (copy) for setting the renderable position. This is
   more robust and, all things considered, the correct way to do it.
 - Display size should be part of render state (passed into createRenderState).
+- Rendering
