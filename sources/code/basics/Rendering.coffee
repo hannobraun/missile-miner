@@ -26,11 +26,13 @@ module "Rendering", [], ( m ) ->
 				position     = properties.position    or [ 0, 0 ]
 				orientation  = properties.orientation or 0
 				color        = properties.color       or "rgb(255,105,180)"
+				font         = properties.font        or "10pt Arial"
 				alpha        = properties.alpha       or 1
 				textAlign    = properties.align       or "center"
 				textBaseline = properties.baseline    or "alphabetic"
 				fill         = properties.fill        or true
 
+				context.font         = font
 				context.globalAlpha  = alpha
 				context.textAlign    = textAlign
 				context.textBaseline = textBaseline
