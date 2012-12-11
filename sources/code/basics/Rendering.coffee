@@ -20,6 +20,32 @@ module "Rendering", [], ( m ) ->
 					image.positionOffset[ 1 ] )
 				context.drawImage( image.rawImage, 0, 0 )
 
+			"text": ( context, properties ) ->
+				text         = properties.text
+
+				position     = properties.position    or [ 0, 0 ]
+				orientation  = properties.orientation or 0
+				color        = properties.color       or "rgb(255,105,180)"
+				alpha        = properties.alpha       or 1
+				textAlign    = properties.align       or "center"
+				textBaseline = properties.baseline    or "alphabetic"
+				fill         = properties.fill        or true
+
+				context.globalAlpha  = alpha
+				context.textAlign    = textAlign
+				context.textBaseline = textBaseline
+
+				context.translate(
+					position[ 0 ],
+					position[ 1 ] )
+				context.rotate( orientation )
+				if fill
+					context.fillStyle = color
+					context.fillText( text, 0, 0 )
+				else
+					context.strokeStyle = color
+					context.strokeText( text, 0, 0 )
+
 			"line": ( context, properties ) ->
 				start = properties.start
 				end   = properties.end
