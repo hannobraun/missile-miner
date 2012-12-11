@@ -1,4 +1,4 @@
-module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Missiles", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "ControlAliens" ], ( m ) ->
+module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", "Missiles", "Bodies", "MinerControls", "DetectCollisions", "DetectLoss", "ActivateMiningLaser", "AddScore", "RemoveOre", "DestroyAsteroids", "SpawnAlien", "ControlAliens", "ControlMissiles" ], ( m ) ->
 	entityFactories =
 		"alien"   : m.Aliens.createAlien
 		"asteroid": m.Asteroids.createAsteroid
@@ -51,6 +51,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 			asteroidControls = components[ "asteroidControls" ]
 			bodies           = components[ "bodies" ]
 			minerControls    = components[ "minerControls" ]
+			missileControls  = components[ "missileControls" ]
 
 			m.DestroyAsteroids(
 				asteroidControls,
@@ -104,3 +105,7 @@ module "Logic", [ "Input", "Entities", "Vec2", "Aliens", "Asteroids", "Miners", 
 				bodies,
 				fieldSize,
 				createEntity )
+			m.ControlMissiles(
+				missileControls,
+				bodies,
+				destroyEntity )

@@ -6,5 +6,5 @@ module "AlienControls", [], ( m ) ->
 
 				tubeDelay: 10
 
-				tubeACooldown: 10
-				tubeBCooldown: 9.5
+				tubeACooldown: 2
+				tubeBCooldown: 1.5
