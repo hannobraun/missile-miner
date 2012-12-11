@@ -16,3 +16,5 @@ module "ActivateMiningLaser", [ "Vec2" ], ( m ) ->
 							1 - distance * ( 1 / maxDistance )
 						else
 							0
+				else
+					minerControl.laserEfficiency = 0

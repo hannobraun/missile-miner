@@ -4,7 +4,8 @@ module "DetectCollisions", [ "Vec2" ], ( m ) ->
 			for minerId, minerControl of minerControls
 				minerBody = bodies[ minerId ]
 
-				nearestDistance = Number.MAX_VALUE
+				nearestDistance                = Number.MAX_VALUE
+				minerControl.nearestAsteroidId = null
 
 				for asteroidId, asteroid of asteroids
 					asteroidBody = bodies[ asteroidId ]
