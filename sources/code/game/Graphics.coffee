@@ -42,4 +42,9 @@ module "Graphics", [ "Rendering", "Vec2" ], ( m ) ->
 
 				renderables.push( renderable )
 
-			console.log( gameState.score )
+			score = m.Rendering.createRenderable( "text", {
+				text    : Math.floor( gameState.score ),
+				position: [ 0, -( renderState.displaySize[ 1 ] / 2 - 30 ) ]
+				color   : "rgb(255,255,0)"
+				font    : "20pt Arial" } )
+			renderables.push( score )
