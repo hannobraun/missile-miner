@@ -10,7 +10,7 @@ module "RemoveOre", [], ( m ) ->
 					asteroidBody    = bodies[ asteroidId ]
 					asteroidControl = asteroidControls[ asteroidId ]
 
-					baseHarvest    = 100
+					baseHarvest    = 10
 					removedOrePerS =
 						baseHarvest * laserEfficiency*laserEfficiency
 
