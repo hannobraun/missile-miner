@@ -1,46 +1,10 @@
 Skeleton improvements:
 
-- Don't add the canvas to the HTML. Just add a div and create the canvas in
-  code. This has two advantages:
-  * Currently, with the black background, the fallback text is not correctly
-    displayed. If the canvas (and its style information) were generated at
-    runtime, this wouldn't be a problem.
-  * Using a div would allow for choosing alternative rendering methods at
-    runtime.
-- Add CLI tool (why not call it ./tool) that can:
-  * Create a new component from a template (./tool create component Body [Bodies]).
-  * Create a new entity from a template (./tool create entity Miner [Miners]).
-  * Create a new system from a template (./tool create system detectCollisions).
-- Hide all functionality in the scripts directory behind the new ./tool script (
-  ./tool compile and ./tool deploy). The configuration aspects of it should be
-  extracted into a central file in the project root.
-- Implement ./tool stage. Like deploy, only it deploys to a staging area.
 - Collect some performance metrics:
   * Time it takes to finish a frame (average and standard deviation).
   * Time it takes to finish parts of a frame (average and standard deviation).
 - Don't generate any garbage in Graphics and check if that makes any difference
   for performance (especially standard deviation).
-- Auto-generate a module each that depends on all entities/components/systems
-  and provides access to them in a useful manner. Provide functions that allow
-  easy access to the data in these modules via some kind of DSL.
-  Examples of use cases that need some kind of DSL written for them:
-  * Creating entities. Currently a data structure is built by hand.
-  * updateGameState: If component and system modules would need to be accessed
-    via a data structure provided by an intermediate module, the code would get
-    unwieldy pretty fast.
-- Automatically generate a module that contains all image paths. That module
-  should be a dependency of main and the images should be explicitely passed
-  into Images.loadImages. Good name for the module: ImagePaths.
-- Create wrapper module for lodash.
-- It should be possible to have the same names for components and entities. E.g.
-  "miner" entity with a "miner" component. Using "minerControl" is less than
-  optimal.
-- Rename Vec2.copy to Vec2.clone.
-- Compilation errors MUST be displayed on the page instead of the canvas (or at
-  least the fact that compilation errors exist). Currently, compilation errors
-  are way too hard to miss, especially if you're refactoring, not expecting any
-  changes and think everything all right, when in reality you introduced an
-  error minutes ago).
 - Tie score to amount of ore mined. Currently, there's duplication in the
   calculation.
 - Add geometry package that can do some more advanced stuff, like:
